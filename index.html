@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Blocked IP</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        let userIP = '';
+
+        async function fetchIP() {
+            try {
+                const response = await fetch('https://api.ipify.org?format=json');
+                const data = await response.json();
+                userIP = data.ip;
+                document.getElementById('ip').style.display = 'block'; // Show the IP element
+            } catch (error) {
+                console.error('Error fetching IP:', error);
+                document.getElementById('ip').textContent = 'Could not retrieve IP address.';
+            }
+        }
+
+        function revealIP() {
+            const ipElement = document.getElementById('ip');
+            ipElement.textContent = userIP; // Display the fetched IP address
+        }
+
+        window.onload = fetchIP; // Fetch the IP on page load
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Your IP is blocked.</h1>  
+    </header>
+    <div>
+        <p>Your IP has been blocked from the website you were attempting to access (nevadastateroleplay.vercel.app). Please contact Website Maintainers for more information.</p>
+    </div>
+    <div>
+        <p>More information</p>
+        <p id="ip" style="display: none;">IP: <span onclick="revealIP()" style="color: blue; cursor: pointer;">Click to reveal</span></p>
+        <p>Website: nevadastateroleplay.vercel.app</p>
+    </div>
+</body>
+</html>
