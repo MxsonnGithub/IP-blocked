@@ -42,6 +42,5 @@ You can deploy this project easily using:
 
 This project is open source! Feel free to contribute by submitting pull requests or opening issues.
 
-📌 **Repository:** [GitHub Link Here]  
-
+📌 **Repository:** https://github.com/MxsonnGithub/IP-blocked
 📜 Licensed under MIT.
